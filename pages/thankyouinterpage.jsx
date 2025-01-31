@@ -1,3 +1,6 @@
+import Head from "next/head";
+import Link from "next/link";
+
 const Thankyou = () => {
   return (
     <>
@@ -7,9 +10,6 @@ const Thankyou = () => {
             Thank you for registering! We appreciate your participation and look
             forward to your involvement.
           </h1>
-          <a href="/homeinter" className="btn btn-action">
-            Back to registration menu
-          </a>
         </div>
       </section>
     </>
