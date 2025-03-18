@@ -43,14 +43,18 @@ export default function Home() {
         </div>
         <div className="wrapper">
           <div className="link-web mx-auto text-center">
-            <a href="/homeindo" className="btn btn-action text-center me-lg-5">
+            <Link href="/homeindo" legacyBehavior>
+            <a className="btn btn-action text-center me-lg-5">
               Indonesia Participant{" "}
               <i className="fa-solid fa-earth-americas"></i>
             </a>
-            <a href="/homeinter" className="btn btn-action text-center me-lg-5">
+            </Link>
+            <Link href="/homeinter" legacyBehavior>
+            <a className="btn btn-action text-center me-lg-5">
               International Participant{" "}
               <i className="fa-solid fa-earth-americas"></i>
             </a>
+            </Link>
           </div>
         </div>
       </section>
