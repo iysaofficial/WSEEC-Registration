@@ -68,7 +68,7 @@ function HomeIndo() {
         <div className="modal-overlay">
           <div className="modal-content">
             <h2 className="text-4xl">Syarat & Ketentuan</h2>
-            <div>{termsContent}</div> {/* Isi dinamis */}
+            <div>{termsContent}</div>
             <div className="checkbox mt-2">
               <input
                 type="checkbox"
@@ -76,7 +76,7 @@ function HomeIndo() {
                 checked={termsAccepted}
                 onChange={(e) => setTermsAccepted(e.target.checked)}
               />
-              <label htmlFor="terms"> Saya menyetujui Syarat & Ketentuan</label>
+              <label htmlFor="terms">Saya menyetujui Syarat & Ketentuan di atas</label>
             </div>
             <div className="modal-actions">
               <button

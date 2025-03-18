@@ -41,56 +41,19 @@ export default function Home() {
             <h1 className="">Registration WSEEC</h1>
           </div>
         </div>
-
         <div className="wrapper">
-          <button
-            className="btn btn-custom text-center me-lg-5 m-2"
-            onClick={() =>
-              handleOpenModal("/homeindo", indonesiaOfflineTerms)
-            }
-          >
-            Indonesia Participant <i className="fa-solid fa-earth-americas"></i>
-          </button>
-          <button
-            className="btn btn-custom text-center me-lg-5 m-2"
-            onClick={() =>
-              handleOpenModal("/homeinter", indonesiaOfflineTerms)
-            }
-          >
-            International Participant <i className="fa-solid fa-earth-americas"></i>
-          </button>
-        </div>
-      </section>
-
-      {/* Modal untuk Terms & Conditions */}
-      {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h2>Terms & Conditions</h2>
-            <div>{termsContent}</div> {/* Isi dinamis */}
-            <div className="checkbox">
-              <input
-                type="checkbox"
-                id="terms"
-                checked={termsAccepted}
-                onChange={(e) => setTermsAccepted(e.target.checked)}
-              />
-              <label htmlFor="terms"> I agree to the Terms & Conditions</label>
-            </div>
-            <div className="modal-actions">
-              <button
-                className="btn btn-secondary"
-                onClick={() => setShowModal(false)}
-              >
-                Cancel
-              </button>
-              <button className="btn btn-primary" onClick={handleAccept}>
-                Accept & Proceed
-              </button>
-            </div>
+          <div className="link-web mx-auto text-center">
+            <a href="/homeindo" className="btn btn-action text-center me-lg-5">
+              Indonesia Participant{" "}
+              <i className="fa-solid fa-earth-americas"></i>
+            </a>
+            <a href="/homeinter" className="btn btn-action text-center me-lg-5">
+              International Participant{" "}
+              <i className="fa-solid fa-earth-americas"></i>
+            </a>
           </div>
         </div>
-      )}
+      </section>
     </>
   );
 }
