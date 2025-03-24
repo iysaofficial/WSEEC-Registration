@@ -464,7 +464,7 @@ export default function InternationalOffline() {
                     <option value="Physic">
                       Physic
                     </option>
-                    <option value="ELife Science">ELife Science</option>
+                    <option value="Life Science">Life Science</option>
                     <option value="Social Science">Social Science</option>
                     <option value="Environment">Environment</option>
                     <option value="Technology">Technology</option>
