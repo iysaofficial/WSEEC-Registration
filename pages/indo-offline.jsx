@@ -25,7 +25,7 @@ function IndonesiaOffline() {
 
   useEffect(() => {
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbw94o9Cu21zgr8X8uDjzWjYTTHhh84BTAziRs7jA8UCuynjjmrAiLNgbpgswaB6r1Pnng/exec";
+      "/";
 
     const form = document.forms["regist-form"];
     let buttonCounter = 0;

@@ -59,7 +59,7 @@ export default function InternationalOnline() {
 
   useEffect(() => {
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbyUP0ikzyS3wdiJ1maqoBbcLCEZQp1gMaVZYGewWJPNOoJBx-KGNtZaMPnUgTxRS0XJDw/exec";
+      "/";
 
     const form = document.forms["regist-form"];
     let buttonCounter = 0;

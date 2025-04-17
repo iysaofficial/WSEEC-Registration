@@ -57,7 +57,7 @@ function IndonesiaOnline() {
 
   useEffect(() => {
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbzfF3Mc3xuuAgITM4uQskVGwTkwg1UGNUcyPSDz1Ar1NyS7SClNuWdStHi_AKMWbqZN0A/exec";
+      "/";
 
     const form = document.forms["regist-form"];
     let buttonCounter = 0;
