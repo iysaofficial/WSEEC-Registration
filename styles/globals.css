@@ -37,6 +37,31 @@ h1, h2, h3, h4, h5, h6, a, p {
   color: #fff;
 }
 
+.thankyou .registration-data table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.thankyou .registration-data th,
+.thankyou .registration-data td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.thankyou .screenshot-notice {
+  margin-top: 20px;
+  font-style: italic;
+  color: #fff;
+}
+
+.thankyou .registration-data h2,
+.thankyou .registration-data p {
+  color: #fff;
+}
+
 .tulisan{
   color: #fff;
 }
