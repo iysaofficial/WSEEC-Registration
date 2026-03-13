@@ -66,7 +66,7 @@ export default function InternationalOnline() {
 
     if (!termsAccepted) {
       alert("You must agree to the Terms & Conditions first.");
-      router("/registration/homeinter"); // Navigasi ke halaman HomeIndo
+      router.push("/registration/homeinter"); // Navigasi ke halaman HomeIndo
     }
   }, [router]);
 
