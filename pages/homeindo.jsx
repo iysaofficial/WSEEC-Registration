@@ -6,29 +6,37 @@ import { useState, useEffect } from "react";
 function HomeIndo() {
   const [showModal, setShowModal] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [hasViewedTerms, setHasViewedTerms] = useState(false);
   const [redirectLink, setRedirectLink] = useState("");
   const [termsContent, setTermsContent] = useState("");
 
   const handleOpenModal = (link, terms) => {
-    setRedirectLink(link); // Set link tujuan redirect
-    setTermsContent(terms); // Set isi terms sesuai pilihan
-    setShowModal(true); // Tampilkan modal
+    setRedirectLink(link);
+    setTermsContent(terms);
+    setTermsAccepted(false);
+    setHasViewedTerms(false);
+    setShowModal(true);
+  };
+
+  const handleViewTerms = () => {
+    window.open("https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/view?usp=sharing", "_blank");
+    setHasViewedTerms(true);
   };
 
   const handleAccept = () => {
     if (termsAccepted) {
-      sessionStorage.setItem("termsAccepted", "true"); // Menyimpan status setuju di sessionStorage
+      sessionStorage.setItem("termsAccepted", "true");
       setShowModal(false);
       window.location.href = redirectLink;
     } else {
       alert("Harap setujui Syarat & Ketentuan untuk melanjutkan.");
     }
   };
-  
+
   useEffect(() => {
     const hasAcceptedTerms = sessionStorage.getItem("termsAccepted");
     if (hasAcceptedTerms === "true") {
-      setTermsAccepted(true); // Set status sudah diterima
+      setTermsAccepted(true);
     }
   }, []);
 
@@ -39,10 +47,10 @@ function HomeIndo() {
           <div className="wrapper">
             <div className="text-center">
               <h1 className="mx-auto text-sm md:text-lg lg:text-5xl">
-                FORMULIR REGISTRASI
+                REGISTRATION FORM FOR INDONESIAN PARTICIPANTS
               </h1>
               <h3 className="tulisan mx-auto mt-5 mb-2 text-sm md:text-lg lg:text-2xl">
-                Pilih Kategori Kompetisi untuk Registrasi WSEEC 2025
+                Choose Categories Competition for Registration WSEEC 2026
               </h3>
             </div>
           </div>
@@ -51,13 +59,13 @@ function HomeIndo() {
               className="btn btn-action text-center me-lg-5 "
               onClick={() => handleOpenModal("/indo-online", indonesiaOnlineTerms)}
             >
-              Kompetisi Online<i className="fa-solid fa-earth-americas"></i>
+              Online Competition<i className="fa-solid fa-earth-americas"></i>
             </a>
             <a
               className="btn btn-action text-center me-lg-5 "
               onClick={() => handleOpenModal("/indo-offline", indonesiaOfflineTerms)}
             >
-              Kompetisi Offline<i className="fa-solid fa-earth-americas"></i>
+              Offline Competition<i className="fa-solid fa-earth-americas"></i>
             </a>
           </div>
         </div>
@@ -67,26 +75,37 @@ function HomeIndo() {
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <h2 className="text-4xl">Syarat & Ketentuan</h2>
+            <h2 className="text-4xl">Terms & Conditions</h2>
             <div>{termsContent}</div>
             <div className="checkbox mt-2">
               <input
                 type="checkbox"
                 id="terms"
                 checked={termsAccepted}
+                disabled={!hasViewedTerms}
                 onChange={(e) => setTermsAccepted(e.target.checked)}
               />
-              <label htmlFor="terms">Saya menyetujui Syarat & Ketentuan di atas</label>
+              <label htmlFor="terms" style={{ color: !hasViewedTerms ? "#999" : "inherit" }}>
+                  I have read and agree to the{" "}
+                  <a href="#" style={{ color: "#2563eb" }} onClick={(e) => { e.preventDefault(); handleViewTerms(); }}>
+                    Terms & Conditions
+                  </a>.
+                </label>
+              {!hasViewedTerms && (
+                <p style={{ color: "#e74c3c", fontSize: "0.85rem", marginTop: "4px" }}>
+                  * Please read and agree to the Terms & Conditions first.
+                </p>
+              )}
             </div>
             <div className="modal-actions">
               <button
                 className="btn btn-secondary"
                 onClick={() => setShowModal(false)}
               >
-                Kembali
+                Back
               </button>
               <button className="btn btn-primary" onClick={handleAccept}>
-                Terima & Proses
+                Accept & Proceed
               </button>
             </div>
           </div>

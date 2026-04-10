@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 function HomeInter() {
   const [showModal, setShowModal] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
+    const [hasViewedTerms, setHasViewedTerms] = useState(false);
   const [redirectLink, setRedirectLink] = useState("");
   const [termsContent, setTermsContent] = useState("");
 
@@ -12,6 +13,13 @@ function HomeInter() {
     setRedirectLink(link); // Set link tujuan redirect
     setTermsContent(terms); // Set isi terms sesuai pilihan
     setShowModal(true); // Tampilkan modal
+    setTermsAccepted(false);
+    setHasViewedTerms(false);
+  };
+
+    const handleViewTerms = () => {
+    window.open("https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/view?usp=sharing", "_blank");
+    setHasViewedTerms(true);
   };
 
   const handleAccept = () => {
@@ -41,7 +49,7 @@ function HomeInter() {
                 REGISTRATION FORM FOR INTERNATIONAL PARTICIPANTS
               </h1>
               <h3 className="tulisan mx-auto mt-5 mb-2 text-sm md:text-lg lg:text-2xl">
-                Choose Categories Competition for Registration WSEEC 2025
+                Choose Categories Competition for Registration WSEEC 2026
               </h3>
             </div>
           </div>
@@ -72,22 +80,33 @@ function HomeInter() {
         <div className="modal-overlay">
           <div className="modal-content">
             <h2 className="text-4xl">Terms & Conditions</h2>
-            <div>{termsContent}</div> {/* Isi dinamis */}
-            <div className="checkbox">
+            <div>{termsContent}</div>
+            <div className="checkbox mt-2">
               <input
                 type="checkbox"
                 id="terms"
                 checked={termsAccepted}
+                disabled={!hasViewedTerms}
                 onChange={(e) => setTermsAccepted(e.target.checked)}
               />
-              <label htmlFor="terms"> I agree to the Terms & Conditions</label>
+              <label htmlFor="terms" style={{ color: !hasViewedTerms ? "#999" : "inherit" }}>
+                  I have read and agree to the{" "}
+                  <a href="#" style={{ color: "#2563eb" }} onClick={(e) => { e.preventDefault(); handleViewTerms(); }}>
+                    Terms & Conditions
+                  </a>.
+                </label>
+              {!hasViewedTerms && (
+                <p style={{ color: "#e74c3c", fontSize: "0.85rem", marginTop: "4px" }}>
+                  * Please read and agree to the Terms & Conditions first.
+                </p>
+              )}
             </div>
             <div className="modal-actions">
               <button
                 className="btn btn-secondary"
                 onClick={() => setShowModal(false)}
               >
-                Cancel
+                Back
               </button>
               <button className="btn btn-primary" onClick={handleAccept}>
                 Accept & Proceed

@@ -38,7 +38,7 @@ export default function Home() {
         <div className="wrapper">
           <div className="">
             <h2 className="">FORM REGISTRATION</h2>
-            <h1 className="">Registration WSEEC</h1>
+            <h1 className="">Registration WSEEC 2026</h1>
           </div>
         </div>
         <div className="wrapper">
