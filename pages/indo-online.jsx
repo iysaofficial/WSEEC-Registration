@@ -121,7 +121,7 @@ function IndonesiaOnline() {
 
         setTimeout(() => {
           router.push(
-            `/thankyouinterpagepage?namaLengkap=${encodeURIComponent(
+            `/thankyouindopage?namaLengkap=${encodeURIComponent(
               formData.namaLengkap
             )}&projectTitle=${encodeURIComponent(
               formData.projectTitle

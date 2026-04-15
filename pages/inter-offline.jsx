@@ -153,12 +153,7 @@ export default function InternationalOffline() {
         form.reset();
         setTimeout(() => {
           router.push(
-            `/thankyouinterpage?namaLengkap=${encodeURIComponent(
-              selectedMaxNamaLengkap
-            )}
-            &projectTitle=${encodeURIComponent(selectedMaxProject)}
-            &category=${encodeURIComponent(selectedCategory)}
-            &namasekolah=${encodeURIComponent(selectedNamaSekolah)}`
+            `/thankyouinterpage?namaLengkap=${encodeURIComponent(selectedMaxNamaLengkap)}&projectTitle=${encodeURIComponent(selectedMaxProject)}&category=${encodeURIComponent(selectedCategory)}&namasekolah=${encodeURIComponent(selectedNamaSekolah)}`
           );
         }, 1000);
       } else {
