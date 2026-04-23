@@ -44,7 +44,7 @@ function IndonesiaOffline() {
     // Logika untuk menentukan harga berdasarkan kategori yang dipilih
     switch (value) {
       case "World Science, Environment and Engineering Competition - Offline Competition":
-        setCategoryPrice("Rp. 3.500.000");
+        setCategoryPrice("Rp. 3.150.000");
         break;
       default:
         break;
