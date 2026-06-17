@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import phoneCodes from "../data/phoneCodes";
 
 export default function InternationalOnline() {
   const [selectedMaxNamaLengkap, setselectedMaxNamaLengkap] = useState("");
@@ -16,8 +17,6 @@ export default function InternationalOnline() {
   const [countdown, setCountdown] = useState(5);
   const [canClick, setCanClick] = useState(false);
   const router = useRouter();
-  const [phoneCodes, setPhoneCodes] = useState([]);
-  const [phoneCodesLoading, setPhoneCodesLoading] = useState(true);
 
   const handleInputNameChange = (e) => {
     const { value } = e.target;
@@ -72,34 +71,8 @@ export default function InternationalOnline() {
 
   const scriptURL = "https://script.google.com/macros/s/AKfycbzOUPlL9U3YngMPHK2PnH5vCcIkg0wzp1ZHuLrVYbch0g3gbxqxkFQgedpxQtMV1UDFUg/exec";
 
-  useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all?fields=name,idd")
-      .then((response) => response.json())
-      .then((data) => {
-        if (Array.isArray(data)) {
-          const codes = data
-            .filter(
-              (country) =>
-                country.idd && country.idd.root && country.idd.suffixes
-            )
-            .map((country) => ({
-              name: country.name.common,
-              code:
-                country.idd.root +
-                (country.idd.suffixes ? country.idd.suffixes[0] : ""),
-            }))
-            .sort((a, b) => a.name.localeCompare(b.name));
-          setPhoneCodes(codes);
-        } else {
-          console.error("API response is not an array:", data);
-        }
-        setPhoneCodesLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching phone codes:", error);
-        setPhoneCodesLoading(false);
-      });
-  }, []);
+
+
 
   useEffect(() => {
     const form = document.forms["regist-form"];
@@ -348,15 +321,11 @@ export default function InternationalOnline() {
                     required
                   >
                     <option value="">--Choose Phone Code--</option>
-                    {phoneCodesLoading ? (
-                      <option value="" disabled>Loading...</option>
-                    ) : (
-                      phoneCodes.map((country) => (
-                        <option key={country.name} value={`${country.name} ${country.code}`}>
-                          {country.name} {country.code}
-                        </option>
-                      ))
-                    )}
+                    {phoneCodes.map((country) => (
+                      <option key={country.name} value={`${country.name} ${country.code}`}>
+                        {country.name} {country.code}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div class="input-box">
