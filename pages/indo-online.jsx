@@ -9,6 +9,7 @@ function IndonesiaOnline() {
   const maxSchoolChars = 500; // batasan maksimal karakter
   const maxProjectChars = 160; // batasan maksimal karakter
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState("");
   const [categoryPrice, setCategoryPrice] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -114,6 +115,7 @@ function IndonesiaOnline() {
           namaLengkap: selectedMaxNamaLengkap,
           projectTitle: selectedMaxProject,
           category: selectedCategory,
+          categories: selectedCategories,
           namasekolah: selectedNamaSekolah,
         };
 
@@ -127,6 +129,8 @@ function IndonesiaOnline() {
               formData.projectTitle
             )}&category=${encodeURIComponent(
               formData.category
+            )}&categories=${encodeURIComponent(
+              formData.categories
             )}&namasekolah=${encodeURIComponent(formData.namasekolah)}`
           );
         }, 1000);
@@ -534,6 +538,7 @@ function IndonesiaOnline() {
                     name="CATEGORIES"
                     className="form-control"
                     required
+                    onChange={(e) => setSelectedCategories(e.target.value)}
                   >
                     <option value="">--Pilih Kategori--</option>
                     <option value="Mathematics">Mathematics</option>

@@ -10,6 +10,7 @@ export default function InternationalOffline() {
   const maxSchoolChars = 500; // batasan maksimal karakter
   const maxProjectChars = 160; // batasan maksimal karakter
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState("");
   const [categoryPrice, setCategoryPrice] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -119,6 +120,7 @@ export default function InternationalOffline() {
           namaLengkap: selectedMaxNamaLengkap,
           projectTitle: selectedMaxProject,
           category: selectedCategory,
+          categories: selectedCategories,
           categoryPrice: categoryPrice,
           namasekolah: selectedNamaSekolah,
         };
@@ -126,7 +128,7 @@ export default function InternationalOffline() {
         form.reset();
         setTimeout(() => {
           router.push(
-            `/thankyouinterpage?namaLengkap=${encodeURIComponent(selectedMaxNamaLengkap)}&projectTitle=${encodeURIComponent(selectedMaxProject)}&category=${encodeURIComponent(selectedCategory)}&namasekolah=${encodeURIComponent(selectedNamaSekolah)}`
+            `/thankyouinterpage?namaLengkap=${encodeURIComponent(selectedMaxNamaLengkap)}&projectTitle=${encodeURIComponent(selectedMaxProject)}&category=${encodeURIComponent(selectedCategory)}&categories=${encodeURIComponent(selectedCategories)}&namasekolah=${encodeURIComponent(selectedNamaSekolah)}`
           );
         }, 1000);
       } else {
@@ -509,6 +511,7 @@ export default function InternationalOffline() {
                     className="form-control"
                     placeholder="--Choose-- "
                     required
+                    onChange={(e) => setSelectedCategories(e.target.value)}
                   >
                     <option value="">--Choose Category--</option>
                     <option value="Mathematics">Mathematics</option>

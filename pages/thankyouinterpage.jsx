@@ -8,14 +8,16 @@ const Thankyou = () => {
   const [namaLengkap, setNamaLengkap] = useState("");
   const [projectTitle, setProjectTitle] = useState("");
   const [category, setCategory] = useState("");
+  const [categories, setCategories] = useState("");
   const [namasekolah, setNamaSekolah] = useState("");
 
   useEffect(() => {
     if (router.isReady) {
-      const { namaLengkap, projectTitle, category, namasekolah } = router.query;
+      const { namaLengkap, projectTitle, category, categories, namasekolah } = router.query;
       setNamaLengkap(namaLengkap || "");
       setProjectTitle(projectTitle || "");
       setCategory(category || "");
+      setCategories(categories || "");
       setNamaSekolah(namasekolah || "");
     }
   }, [router.isReady, router.query]);
@@ -44,9 +46,14 @@ const Thankyou = () => {
                   <td>{projectTitle}</td>
                 </tr>
                 <tr>
-                  <td>Category</td>
+                  <td>Category Competition</td>
                   <td>:</td>
                   <td>{category}</td>
+                </tr>
+                <tr>
+                  <td>Category</td>
+                  <td>:</td>
+                  <td>{categories}</td>
                 </tr>
                 <tr>
                   <td>School Name</td>
