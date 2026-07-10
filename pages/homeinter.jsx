@@ -57,12 +57,29 @@ function HomeInter() {
             <a
               className="btn btn-action text-center me-lg-5"
               onClick={() =>
+                handleOpenModal("#", "Registration is Closed")
+              }
+            >
+              Registration is Closed <i className="fa-solid fa-earth-americas"></i>
+            </a>
+            {/* <a
+              className="btn btn-action text-center me-lg-5"
+              onClick={() =>
                 handleOpenModal("/inter-online", internationalOnlineTerms)
               }
             >
               Online Competition <i className="fa-solid fa-earth-americas"></i>
-            </a>
+            </a> */}
             <a
+              className="btn btn-action text-center me-lg-5"
+              onClick={() =>
+                handleOpenModal("#", "Registration is Closed")
+              }
+            >
+              Registration is Closed{" "}
+              <i className="fa-solid fa-earth-americas"></i>
+            </a>
+            {/* <a
               className="btn btn-action text-center me-lg-5"
               onClick={() =>
                 handleOpenModal("/inter-offline", internationalOfflineTerms)
@@ -70,7 +87,7 @@ function HomeInter() {
             >
               Offline Competition{" "}
               <i className="fa-solid fa-earth-americas"></i>
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
